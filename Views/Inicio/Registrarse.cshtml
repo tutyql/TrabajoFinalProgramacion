@@ -1,0 +1,40 @@
+﻿@model TrabajoFinalProgramacion.Models.Usuario;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+
+
+<form class="form-inicio" asp-controller="Inicio" asp-action="Registrarse" method="post">
+    <h2 class="titulo">Registro</h2>
+    <input class="input-login" type="text" placeholder="Nombre Completo" asp-for="NombreUsuario" required />
+    <input class="input-login" type="text" placeholder="Correo" required name="correo" />
+    <input class="input-login" type="password" placeholder="Contraseña" required name="clave" />
+    <button class="button-login" type="submit">Registrar</button>
+        <div style="width:100%;display:flex;justify-content:center;align-items:center;gap:10px;">¿Tienes una cuenta? <a class="link-navegacion" href="@Url.Action("IniciarSesion","Inicio")">Iniciar Sesión</a></div>
+</form>
+                            @if (ViewData["Mensaje"] != null)
+                            {
+                                <div class="form-group">
+                                    <div class="alert alert-danger" role="alert">
+                                        @ViewData["Mensaje"]
+                                    </div>
+                                </div>
+                            }
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
